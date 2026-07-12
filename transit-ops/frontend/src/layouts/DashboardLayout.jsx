@@ -27,25 +27,25 @@ const DashboardLayout = ({ children }) => {
       name: "Dashboard",
       href: "/dashboard",
       icon: LayoutDashboard,
-      roles: ["Fleet Manager", "Driver", "Safety Officer", "Financial Analyst"],
+      roles: ["Fleet Manager", "Driver", "Safety Officer", "Financial Analyst", "Dispatch Officer"],
     },
     {
       name: "Vehicles",
       href: "/vehicles",
       icon: Car,
-      roles: ["Fleet Manager", "Safety Officer", "Driver", "Financial Analyst"], // Accessible by all, but write permissions may vary
+      roles: ["Fleet Manager", "Safety Officer", "Driver", "Financial Analyst", "Dispatch Officer"], // Accessible by all, but write permissions may vary
     },
     {
       name: "Drivers",
       href: "/drivers",
       icon: Users,
-      roles: ["Fleet Manager", "Safety Officer", "Driver", "Financial Analyst"],
+      roles: ["Fleet Manager", "Safety Officer", "Driver", "Financial Analyst", "Dispatch Officer"],
     },
     {
       name: "Trip Management",
       href: "/trips",
       icon: Route,
-      roles: ["Fleet Manager", "Driver", "Safety Officer", "Financial Analyst"],
+      roles: ["Fleet Manager", "Driver", "Safety Officer", "Financial Analyst", "Dispatch Officer"],
     },
     {
       name: "Maintenance",

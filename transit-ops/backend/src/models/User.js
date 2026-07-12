@@ -29,6 +29,7 @@ const userSchema = new mongoose.Schema(
         "Driver",
         "Safety Officer",
         "Financial Analyst",
+        "Dispatch Officer",
       ],
       default: "Fleet Manager",
     },

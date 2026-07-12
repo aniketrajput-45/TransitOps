@@ -34,7 +34,7 @@ export const registerValidation = [
     .withMessage("Password must be at least 6 characters long"),
   body("role")
     .optional()
-    .isIn(["Fleet Manager", "Driver", "Safety Officer", "Financial Analyst"])
+    .isIn(["Fleet Manager", "Driver", "Safety Officer", "Financial Analyst", "Dispatch Officer"])
     .withMessage("Invalid user role"),
   handleValidationErrors
 ];

@@ -19,7 +19,7 @@ const registerSchema = z.object({
     .string()
     .min(6, { message: "Password must be at least 6 characters long" }),
   role: z.enum(
-    ["Fleet Manager", "Driver", "Safety Officer", "Financial Analyst"],
+    ["Fleet Manager", "Driver", "Safety Officer", "Financial Analyst", "Dispatch Officer"],
     { errorMap: () => ({ message: "Please select a valid role" }) }
   ),
 });
@@ -52,6 +52,7 @@ const Register = () => {
     "Driver": "Creates trips, assigns vehicles and drivers, and monitors active deliveries.",
     "Safety Officer": "Ensures driver compliance, tracks license validity, and monitors safety scores.",
     "Financial Analyst": "Reviews operational expenses, fuel consumption, maintenance costs, and profitability.",
+    "Dispatch Officer": "Coordinates daily logistics dispatches, schedules routes, and monitors trip safety guidelines.",
   };
 
   const onSubmit = async (data) => {
@@ -200,6 +201,7 @@ const Register = () => {
                 <option value="Driver">Driver</option>
                 <option value="Safety Officer">Safety Officer</option>
                 <option value="Financial Analyst">Financial Analyst</option>
+                <option value="Dispatch Officer">Dispatch Officer</option>
               </select>
               <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-slate-500">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

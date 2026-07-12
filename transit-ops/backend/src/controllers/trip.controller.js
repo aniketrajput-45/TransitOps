@@ -15,6 +15,21 @@ export const getAllTrips = async (req, res) => {
       filter.status = status;
     }
 
+    if (req.user.role === "Driver") {
+      const driverProfile = await Driver.findOne({
+        name: { $regex: new RegExp("^" + req.user.name + "$", "i") },
+      });
+      if (driverProfile) {
+        filter.driver = driverProfile._id;
+      } else {
+        return res.status(200).json({
+          success: true,
+          count: 0,
+          trips: [],
+        });
+      }
+    }
+
     const trips = await Trip.find(filter)
       .populate("vehicle")
       .populate("driver")
@@ -42,11 +57,16 @@ export const getTripById = async (req, res) => {
       .populate("vehicle")
       .populate("driver");
 
-    if (!trip) {
-      return res.status(404).json({
-        success: false,
-        message: "Trip not found",
+    if (req.user.role === "Driver") {
+      const driverProfile = await Driver.findOne({
+        name: { $regex: new RegExp("^" + req.user.name + "$", "i") },
       });
+      if (!driverProfile || trip.driver._id.toString() !== driverProfile._id.toString()) {
+        return res.status(403).json({
+          success: false,
+          message: "Forbidden: You are not assigned to this trip",
+        });
+      }
     }
 
     res.status(200).json({

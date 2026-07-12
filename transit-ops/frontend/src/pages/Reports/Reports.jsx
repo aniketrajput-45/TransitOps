@@ -10,6 +10,7 @@ import {
   DollarSign,
   BarChart3,
   Scale,
+  Receipt,
 } from "lucide-react";
 import {
   BarChart,
@@ -120,6 +121,8 @@ const Reports = () => {
         Efficiency: parseFloat(r.fuelEfficiency.toFixed(2)),
       }))
     : [];
+
+  const totalExpenses = data?.summary?.totals?.totalOperationalCost || 0;
 
   return (
     <div className="space-y-6">
