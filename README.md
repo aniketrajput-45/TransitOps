@@ -1,121 +1,439 @@
-# 🚀 TransitOps - Fleet Management & Operational Analytics
+# 🚛 TransitOps – Smart Fleet Management System
 
-A modern, responsive, and secure **Fleet Operations and Analytics Platform** designed to coordinate shipping runs, driver safety standards, vehicle maintenance life-cycles, fuel logs, and general operating expenditures with dynamic, interactive charting and CSV data auditing.
+> A modern enterprise-grade Fleet Operations, Maintenance, and Financial Analytics platform built using the MERN Stack.
 
----
-
-## 🌟 Core Features
-
-* **🔐 Advanced Authentication & RBAC**: Real-time permission controls dynamically filtering dashboard access across 5 distinct business roles:
-  * **Fleet Manager** (System Admin - full management)
-  * **Dispatch Officer** (Logistics planner - schedules and dispatches trips)
-  * **Driver** (Operators - restricted to viewing and completing their assigned trips)
-  * **Safety Officer** (Compliance coordinator - tracks license alerts and driver safety scores)
-  * **Financial Analyst** (Auditor - manages expenses and audits ROI sheets)
-* **🚛 Fleet Registries (Vehicles & Drivers)**: Full CRUD operations verifying unique registrations, displaying active warning flags for expired or expiring commercial licenses, and scoring safety standards.
-* **🗺️ Trip State Engine**: Automatic state transition lifecycle (`Draft` → `Dispatched` → `Completed`/`Cancelled`) enforcing vehicle load caps, license dates, and asset availability rules.
-* **🔧 Repair Shop Workorders**: Places vehicles under active maintenance log (`In Shop`), automatically removing them from dispatch dropdown pools until closed with recorded repair costs.
-* **⛽ Cost Tracking Ledger**: Records manual and trip-completed fuel logs, highway tolls, permits, speeding tickets, and commercial insurance.
-* **📈 Visual Analytics & Audits**: Renders real-time interactive line, bar, and cost-share pie charts (using Recharts) to analyze vehicle ROI, average fleet efficiencies, and overall utilization rate.
-* **📥 CSV Reports Exporter**: One-click formatting and downloading of complete operations data.
+![React](https://img.shields.io/badge/React-19-blue)
+![Node](https://img.shields.io/badge/Node.js-Express-green)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-success)
+![JWT](https://img.shields.io/badge/Auth-JWT-orange)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
 ---
 
-## 🛠️ Technology Stack
+# 📖 Overview
 
-* **Frontend**: React (Vite), Tailwind CSS (Vanilla UI tokens), Lucide React (Icons), React Hook Form & Zod (Form schema validation), Recharts (Visual charts).
-* **Backend**: Node.js, Express, Express Validator (API params verification), JWT & Bcrypt (Auth sessions).
-* **Database**: MongoDB Atlas via Mongoose.
+TransitOps is a comprehensive Fleet Management System designed to streamline transportation operations for logistics companies.
+
+The platform provides secure role-based access, intelligent trip dispatching, maintenance management, fuel tracking, expense monitoring, and real-time operational analytics through an interactive dashboard.
 
 ---
 
-## 📁 Repository Structure
+# ✨ Features
 
-```text
-transit-ops/
-├── backend/                  # Node/Express API Server
-│   ├── src/
-│   │   ├── config/           # Database configurations
-│   │   ├── controllers/      # Route handler controllers (Auth, Vehicles, Trips, etc.)
-│   │   ├── middleware/       # JWT auth & role validation middlewares
-│   │   ├── models/           # MongoDB schemas (Vehicle, Driver, Trip, etc.)
-│   │   ├── routes/           # Protected API route endpoints
-│   │   ├── validations/      # Express-validator input checks
-│   │   └── scripts/          # Mock database seeding utilities
+## 🔐 Authentication & Security
+
+- JWT Authentication
+- Password Encryption (bcrypt)
+- Role-Based Access Control (RBAC)
+- Protected API Routes
+
+---
+
+## 👥 User Roles
+
+### 👑 Fleet Manager
+- Full system access
+- Vehicle Management
+- Driver Management
+- Trip Management
+- Maintenance
+- Fuel Logs
+- Expenses
+- Reports
+
+### 🚛 Dispatch Officer
+- Create Trips
+- Dispatch Trips
+- Complete Trips
+- Cancel Trips
+- View Drivers & Vehicles
+
+### 🚚 Driver
+- View Assigned Trips
+- Complete Trips
+- Submit Fuel Logs
+
+### 🛡 Safety Officer
+- View Compliance Reports
+- License Expiry Monitoring
+- Safety Score Tracking
+
+### 💰 Financial Analyst
+- Expense Management
+- Fuel Cost Tracking
+- Financial Reports
+- ROI Analytics
+
+---
+
+# 🚗 Modules
+
+## Vehicle Management
+
+- Register Vehicles
+- Vehicle Status Tracking
+- Capacity Management
+- Odometer Tracking
+- Region Assignment
+
+Vehicle Status
+
+- Available
+- On Trip
+- In Shop
+- Retired
+
+---
+
+## Driver Management
+
+- Driver Registration
+- License Monitoring
+- Safety Scores
+- Availability Tracking
+
+---
+
+## Trip Management
+
+Supports the complete trip lifecycle:
+
+Draft
+↓
+
+Dispatched
+↓
+
+Completed
+
+or
+
+Cancelled
+
+### Business Rules
+
+✅ Vehicle must be Available
+
+✅ Driver must be Available
+
+✅ Cargo Weight ≤ Vehicle Capacity
+
+✅ Driver License must be valid
+
+---
+
+## Maintenance Management
+
+- Create Work Orders
+- Track Repair Costs
+- Vehicle Shop Status
+- Prevent Double Booking
+
+---
+
+## Fuel Management
+
+- Manual Fuel Entries
+- Automatic Fuel Logs after Trip Completion
+- Fuel Cost Tracking
+- Fuel Efficiency Analytics
+
+---
+
+## Expense Management
+
+Track operational expenses including:
+
+- Repairs
+- Insurance
+- Tolls
+- Permits
+- Miscellaneous Expenses
+
+---
+
+# 📊 Dashboard
+
+Interactive Dashboard includes
+
+- Fleet Overview
+- Vehicle Status
+- Active Trips
+- Maintenance Summary
+- Fuel Consumption
+- Expense Analysis
+- Fleet Utilization
+- ROI Analysis
+
+Charts powered by **Recharts**
+
+---
+
+# 📈 Analytics
+
+## Fuel Efficiency
+
+Fuel Efficiency = Distance Travelled / Fuel Consumed
+
+---
+
+## Fleet Utilization
+
+Fleet Utilization =
+
+Active Vehicles
+
+÷
+
+Total Active Fleet
+
+×100
+
+---
+
+## Vehicle ROI
+
+ROI =
+
+Revenue − Expenses
+
+÷
+
+Purchase Cost
+
+×100
+
+---
+
+# 🏗 Tech Stack
+
+## Frontend
+
+- React 19
+- Vite
+- Tailwind CSS
+- Axios
+- React Router
+- React Hook Form
+- Zod
+- Recharts
+- Lucide Icons
+
+---
+
+## Backend
+
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Mongoose
+- JWT
+- bcryptjs
+- Express Validator
+- CORS
+- Helmet
+- Morgan
+
+---
+
+# 📂 Project Structure
+
+```
+TransitOps
+│
+├── frontend
+│   ├── src
+│   ├── public
 │   └── package.json
-└── frontend/                 # React/Vite Client
-    ├── src/
-    │   ├── context/          # Auth state provider
-    │   ├── layouts/          # Responsive navigation sidebars
-    │   ├── pages/            # View pages (Dashboard, Registry CRUDs, Reports, etc.)
-    │   ├── routes/           # Guarded React Router paths
-    │   └── services/         # Axios API clients
-    └── package.json
+│
+├── backend
+│   ├── src
+│   │   ├── config
+│   │   ├── controllers
+│   │   ├── middleware
+│   │   ├── models
+│   │   ├── routes
+│   │   ├── services
+│   │   ├── validations
+│   │   └── utils
+│   │
+│   ├── package.json
+│   └── .env
+│
+└── README.md
 ```
 
 ---
 
-## ⚡ Quick Start & Installation
+# 🚀 Installation
 
-### Prerequisites
-* [Node.js](https://nodejs.org/) installed locally (v18+ recommended).
-* A running MongoDB Atlas database.
+## Clone Repository
 
-### 1. Backend Configuration
-Create a `.env` configuration file inside the `/backend` directory:
+```bash
+git clone https://github.com/aniketrajput-45/TransitOps.git
+```
+
+---
+
+## Backend
+
+```bash
+cd backend
+
+npm install
+```
+
+Create `.env`
+
 ```env
 PORT=5000
-MONGO_URI=mongodb+srv://<username>:<password>@cluster0.xxx.mongodb.net/transitops
-JWT_SECRET=your_jwt_signing_token_secret
+
+MONGO_URI=YOUR_MONGODB_URI
+
+JWT_SECRET=YOUR_SECRET_KEY
 ```
 
-### 2. Install Dependencies
-Open a terminal in the root repository directory:
+Run Backend
+
 ```bash
-# Install backend packages
-cd transit-ops/backend
-npm install
-
-# Install frontend packages
-cd ../frontend
-npm install
-```
-
-### 3. Seed Database Mock Data
-Initialize your database with complete operational data (vehicles, driver warnings, logs, trips, and expenses):
-```bash
-cd transit-ops/backend
-node src/scripts/seed.js
-```
-
-### 4. Run Development Servers
-Open two terminal windows to boot both dev servers:
-
-**Terminal 1 (Backend API Server):**
-```bash
-cd transit-ops/backend
 npm run dev
-# Server boots on http://localhost:5000/
-```
-
-**Terminal 2 (Frontend Client Server):**
-```bash
-cd transit-ops/frontend
-npm run dev
-# Web application starts on http://localhost:5174/ (or http://localhost:5173/)
 ```
 
 ---
 
-## 🔑 Default Roles & Access Mapping
+## Frontend
 
-| Route Page | Fleet Manager (Admin) | Dispatch Officer | Driver | Safety Officer | Financial Analyst |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| **Dashboard** | Read / Write | Read | Read | Read | Read |
-| **Vehicles** | Read / Write | Read | Read | Read | Read |
-| **Drivers** | Read / Write | Read | Read | Read | Read |
-| **Trip Management** | Read / Write | Read / Write | Read / Write (Assigned Only) | Read | Read |
-| **Maintenance** | Read / Write | 🚫 Blocked | 🚫 Blocked | Read | Read |
-| **Fuel Logs** | Read / Write | 🚫 Blocked | Read / Write | 🚫 Blocked | Read / Write |
-| **Expenses** | Read / Write | 🚫 Blocked | 🚫 Blocked | 🚫 Blocked | Read / Write |
-| **Reports** | Read / Write | 🚫 Blocked | 🚫 Blocked | Read | Read / Write |
+```bash
+cd frontend
+
+npm install
+
+npm run dev
+```
+
+---
+
+# 🌐 API Endpoints
+
+## Authentication
+
+```
+POST /api/auth/register
+
+POST /api/auth/login
+```
+
+---
+
+## Vehicles
+
+```
+GET /api/vehicles
+
+POST /api/vehicles
+
+PUT /api/vehicles/:id
+
+DELETE /api/vehicles/:id
+```
+
+---
+
+## Drivers
+
+```
+GET /api/drivers
+
+POST /api/drivers
+
+PUT /api/drivers/:id
+
+DELETE /api/drivers/:id
+```
+
+---
+
+## Trips
+
+```
+GET /api/trips
+
+POST /api/trips
+
+PUT /api/trips/:id
+
+DELETE /api/trips/:id
+```
+
+---
+
+## Maintenance
+
+```
+GET /api/maintenance
+
+POST /api/maintenance
+```
+
+---
+
+## Fuel
+
+```
+GET /api/fuel
+
+POST /api/fuel
+```
+
+---
+
+## Expenses
+
+```
+GET /api/expenses
+
+POST /api/expenses
+```
+
+---
+
+# 🔒 Role-Based Access
+
+| Module | Fleet Manager | Dispatch | Driver | Safety | Finance |
+|----------|--------------|----------|---------|----------|-----------|
+| Dashboard | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Vehicles | ✅ | 👀 | 👀 | 👀 | 👀 |
+| Drivers | ✅ | 👀 | 👀 | 👀 | 👀 |
+| Trips | ✅ | ✅ | Assigned Only | 👀 | 👀 |
+| Maintenance | ✅ | ❌ | ❌ | 👀 | 👀 |
+| Fuel | ✅ | ❌ | ✅ | ❌ | ✅ |
+| Expenses | ✅ | ❌ | ❌ | ❌ | ✅ |
+| Reports | ✅ | ❌ | ❌ | 👀 | ✅ |
+
+👀 = Read Only
+
+---
+
+# 🎯 Future Enhancements
+
+- AI-based Vehicle Recommendation
+- Predictive Maintenance
+- GPS Tracking
+- Real-Time Notifications
+- PDF Reports
+- Email Alerts
+- Multi-Organization Support
+
+---
+
+# 👨‍💻 Developed By
+
+**Aniket Kumar Singh**
+
+Hackathon Project – 2026
+
+---
+
+# ⭐ If you like this project
+
+Please consider giving it a ⭐ on GitHub.
