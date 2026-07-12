@@ -128,12 +128,12 @@ const Expenses = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-extrabold text-white">General Expenses</h2>
-          <p className="text-slate-400 text-sm mt-1">Audit tolls, permits, fines, and other operational expenditures</p>
+          <h2 className="text-2xl font-extrabold text-slate-900">General Expenses</h2>
+          <p className="text-slate-500 text-sm mt-1">Audit tolls, permits, fines, and other operational expenditures</p>
         </div>
         <button
           onClick={handleOpenModal}
-          className="inline-flex items-center justify-center px-4 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-xl transition duration-150 gap-2 text-sm shadow-[0_4px_15px_rgba(6,182,212,0.15)]"
+          className="inline-flex items-center justify-center px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition duration-150 gap-2 text-sm shadow-sm"
         >
           <Plus className="w-4 h-4" />
           Log Expense
@@ -142,45 +142,45 @@ const Expenses = () => {
 
       {/* KPI summaries */}
       <div className="grid grid-cols-2 lg:grid-cols-6 gap-4">
-        <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl col-span-2">
-          <div className="flex justify-between items-center text-slate-500 mb-1.5">
+        <div className="bg-white border border-slate-200 p-4 rounded-2xl col-span-2 shadow-sm">
+          <div className="flex justify-between items-center text-slate-400 mb-1.5">
             <span className="text-[10px] font-bold uppercase tracking-wider">Total Expenditures</span>
-            <DollarSign className="w-4 h-4 text-cyan-450" />
+            <DollarSign className="w-4 h-4 text-indigo-650" />
           </div>
-          <p className="text-2xl font-black text-white">${totalExpenses.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+          <p className="text-2xl font-black text-slate-900">${totalExpenses.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
-          <div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Tolls</div>
-          <p className="text-lg font-bold text-slate-200">${breakdown.Toll.toFixed(0)}</p>
+        <div className="bg-white border border-slate-200 p-4 rounded-2xl shadow-sm">
+          <div className="text-[10px] text-slate-450 font-bold uppercase tracking-wider mb-1">Tolls</div>
+          <p className="text-lg font-bold text-slate-800">${breakdown.Toll.toFixed(0)}</p>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
-          <div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Permits</div>
-          <p className="text-lg font-bold text-slate-200">${breakdown.Permit.toFixed(0)}</p>
+        <div className="bg-white border border-slate-200 p-4 rounded-2xl shadow-sm">
+          <div className="text-[10px] text-slate-450 font-bold uppercase tracking-wider mb-1">Permits</div>
+          <p className="text-lg font-bold text-slate-800">${breakdown.Permit.toFixed(0)}</p>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
-          <div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Insurance</div>
-          <p className="text-lg font-bold text-slate-200">${breakdown.Insurance.toFixed(0)}</p>
+        <div className="bg-white border border-slate-200 p-4 rounded-2xl shadow-sm">
+          <div className="text-[10px] text-slate-450 font-bold uppercase tracking-wider mb-1">Insurance</div>
+          <p className="text-lg font-bold text-slate-800">${breakdown.Insurance.toFixed(0)}</p>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
-          <div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Fines & Fess</div>
-          <p className="text-lg font-bold text-rose-400">${breakdown.Fine.toFixed(0)}</p>
+        <div className="bg-white border border-slate-200 p-4 rounded-2xl shadow-sm">
+          <div className="text-[10px] text-slate-450 font-bold uppercase tracking-wider mb-1">Fines & Fess</div>
+          <p className="text-lg font-bold text-rose-600">${breakdown.Fine.toFixed(0)}</p>
         </div>
       </div>
 
       {/* Filter Options */}
-      <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl flex items-center justify-between">
-        <div className="flex items-center gap-2 text-slate-400 text-sm">
-          <SlidersHorizontal className="w-4 h-4 text-cyan-400" />
+      <div className="bg-white border border-slate-200 p-5 rounded-2xl flex items-center justify-between shadow-sm">
+        <div className="flex items-center gap-2 text-slate-550 text-sm">
+          <SlidersHorizontal className="w-4 h-4 text-indigo-600" />
           <span>Category Filter:</span>
         </div>
         <select
           value={typeFilter}
           onChange={(e) => setTypeFilter(e.target.value)}
-          className="px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-300 focus:outline-none focus:border-cyan-400 transition cursor-pointer"
+          className="px-3 py-2 bg-white border border-slate-300 rounded-xl text-xs text-slate-700 focus:outline-none focus:border-indigo-500 transition cursor-pointer"
         >
           <option value="">All Categories</option>
           <option value="Toll">Toll</option>
@@ -192,28 +192,28 @@ const Expenses = () => {
       </div>
 
       {/* Expense Data Grid */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
         {loading ? (
           <div className="py-20 flex flex-col items-center justify-center gap-3">
-            <Loader2 className="w-8 h-8 text-cyan-400 animate-spin" />
-            <p className="text-slate-400 text-sm">Loading expense records...</p>
+            <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
+            <p className="text-slate-500 text-sm">Loading expense records...</p>
           </div>
         ) : error ? (
-          <div className="py-20 text-center text-rose-400 flex flex-col items-center justify-center gap-2">
+          <div className="py-20 text-center text-rose-600 flex flex-col items-center justify-center gap-2">
             <AlertCircle className="w-8 h-8" />
             <p>{error}</p>
           </div>
         ) : expenses.length === 0 ? (
           <div className="py-20 text-center text-slate-500">
-            <Receipt className="w-12 h-12 text-slate-700 mx-auto mb-3" />
-            <p className="text-slate-400">No expense records logged</p>
-            <p className="text-xs text-slate-600 mt-1">Log tolls or operational fees to see entries here.</p>
+            <Receipt className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+            <p className="text-slate-555">No expense records logged</p>
+            <p className="text-xs text-slate-400 mt-1">Log tolls or operational fees to see entries here.</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-sm">
               <thead>
-                <tr className="bg-slate-950 border-b border-slate-800 text-slate-400 font-semibold uppercase text-xs">
+                <tr className="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase text-xs">
                   <th className="px-6 py-4">Vehicle</th>
                   <th className="px-6 py-4">Expense Type</th>
                   <th className="px-6 py-4">Description</th>
@@ -221,32 +221,32 @@ const Expenses = () => {
                   <th className="px-6 py-4">Logged Date</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-slate-200">
                 {expenses.map((exp) => (
-                  <tr key={exp._id} className="hover:bg-slate-800/30 transition">
+                  <tr key={exp._id} className="hover:bg-slate-50/80 transition">
                     <td className="px-6 py-4">
                       {exp.vehicle ? (
                         <div className="flex flex-col">
-                          <span className="font-mono font-semibold text-cyan-400">{exp.vehicle.registrationNumber}</span>
+                          <span className="font-mono font-semibold text-indigo-650">{exp.vehicle.registrationNumber}</span>
                           <span className="text-xs text-slate-500 mt-0.5">{exp.vehicle.name}</span>
                         </div>
                       ) : (
-                        <span className="text-slate-600">Deleted Vehicle</span>
+                        <span className="text-slate-400">Deleted Vehicle</span>
                       )}
                     </td>
                     <td className="px-6 py-4">
-                      <span className="inline-flex items-center gap-1.5 text-white font-medium">
-                        <Tag className="w-3.5 h-3.5 text-indigo-400" />
+                      <span className="inline-flex items-center gap-1.5 text-slate-900 font-semibold bg-slate-100 px-2.5 py-1 rounded-xl">
+                        <Tag className="w-3.5 h-3.5 text-indigo-650" />
                         {exp.type}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-slate-300 italic">
+                    <td className="px-6 py-4 text-slate-600 italic">
                       {exp.description || "--"}
                     </td>
-                    <td className="px-6 py-4 text-right text-slate-200 font-semibold">${exp.cost.toFixed(2)}</td>
-                    <td className="px-6 py-4 text-slate-350">
+                    <td className="px-6 py-4 text-right text-slate-900 font-semibold">${exp.cost.toFixed(2)}</td>
+                    <td className="px-6 py-4 text-slate-700">
                       <div className="flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5 text-slate-500" />
+                        <Calendar className="w-3.5 h-3.5 text-slate-400" />
                         <span>{new Date(exp.date).toLocaleDateString()}</span>
                       </div>
                     </td>
@@ -260,13 +260,13 @@ const Expenses = () => {
 
       {/* Manual Entry Dialog */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fade-in">
-          <div className="bg-slate-900 border border-slate-800 w-full max-w-md rounded-2xl overflow-hidden shadow-2xl relative">
-            <div className="px-6 py-4 border-b border-slate-800 flex justify-between items-center">
-              <h3 className="font-bold text-lg text-white">Log Fleet Expense</h3>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
+          <div className="bg-white border border-slate-200 w-full max-w-md rounded-2xl overflow-hidden shadow-xl relative">
+            <div className="px-6 py-4 border-b border-slate-200 flex justify-between items-center">
+              <h3 className="font-bold text-lg text-slate-900">Log Fleet Expense</h3>
               <button
                 onClick={handleCloseModal}
-                className="text-slate-400 hover:text-white p-1 hover:bg-slate-800 rounded-lg transition"
+                className="text-slate-400 hover:text-slate-600 p-1 hover:bg-slate-100 rounded-lg transition"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -274,7 +274,7 @@ const Expenses = () => {
 
             <form onSubmit={handleSubmit(onSubmit)} className="p-6 space-y-4">
               {modalError && (
-                <div className="p-3 bg-rose-500/10 border border-rose-500/20 text-rose-400 rounded-xl text-xs flex items-center gap-2">
+                <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 rounded-xl text-xs flex items-center gap-2">
                   <AlertCircle className="w-4 h-4 flex-shrink-0" />
                   <span>{modalError}</span>
                 </div>
@@ -282,12 +282,12 @@ const Expenses = () => {
 
               {/* Vehicle Select */}
               <div className="space-y-1">
-                <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">
+                <label className="text-xs font-semibold text-slate-550 uppercase tracking-wider pl-1">
                   Fleet Vehicle
                 </label>
                 <select
                   {...register("vehicle")}
-                  className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyan-400 transition cursor-pointer"
+                  className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition cursor-pointer"
                 >
                   <option value="">-- Select Fleet Vehicle --</option>
                   {vehicles.map((v) => (
@@ -296,18 +296,18 @@ const Expenses = () => {
                     </option>
                   ))}
                 </select>
-                {errors.vehicle && <p className="text-xs text-rose-400 pl-1 mt-0.5">{errors.vehicle.message}</p>}
+                {errors.vehicle && <p className="text-xs text-rose-600 pl-1 mt-0.5">{errors.vehicle.message}</p>}
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 {/* Expense Type Selection */}
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">
+                  <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider pl-1">
                     Expense Category
                   </label>
                   <select
                     {...register("type")}
-                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyan-400 transition cursor-pointer"
+                    className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition cursor-pointer"
                   >
                     <option value="Toll">Toll</option>
                     <option value="Permit">Permit</option>
@@ -315,12 +315,12 @@ const Expenses = () => {
                     <option value="Insurance">Insurance</option>
                     <option value="Other">Other</option>
                   </select>
-                  {errors.type && <p className="text-xs text-rose-400 pl-1 mt-0.5">{errors.type.message}</p>}
+                  {errors.type && <p className="text-xs text-rose-600 pl-1 mt-0.5">{errors.type.message}</p>}
                 </div>
 
                 {/* Cost */}
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">
+                  <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider pl-1">
                     Expense Cost ($)
                   </label>
                   <input
@@ -328,53 +328,53 @@ const Expenses = () => {
                     step="0.01"
                     placeholder="e.g. 24.50"
                     {...register("cost")}
-                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyan-400 transition"
+                    className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition"
                   />
-                  {errors.cost && <p className="text-xs text-rose-400 pl-1 mt-0.5">{errors.cost.message}</p>}
+                  {errors.cost && <p className="text-xs text-rose-600 pl-1 mt-0.5">{errors.cost.message}</p>}
                 </div>
               </div>
 
               {/* Description */}
               <div className="space-y-1">
-                <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">
+                <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider pl-1">
                   Description
                 </label>
                 <input
                   type="text"
                   placeholder="e.g. Toll booth route MH-04, Permit processing"
                   {...register("description")}
-                  className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyan-400 transition"
+                  className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition"
                 />
               </div>
 
               {/* Date */}
               <div className="space-y-1">
-                <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">
+                <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider pl-1">
                   Log Date
                 </label>
                 <input
                   type="date"
                   {...register("date")}
-                  className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyan-400 transition"
+                  className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition"
                 />
-                {errors.date && <p className="text-xs text-rose-400 pl-1 mt-0.5">{errors.date.message}</p>}
+                {errors.date && <p className="text-xs text-rose-600 pl-1 mt-0.5">{errors.date.message}</p>}
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-4 border-t border-slate-800 flex justify-end gap-3">
+              <div className="pt-4 border-t border-slate-200 flex justify-end gap-3">
                 <button
                   type="button"
                   onClick={handleCloseModal}
-                  className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-3 font-semibold rounded-xl text-sm transition"
+                  className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-sm transition"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSaving || vehicles.length === 0}
-                  className="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-xl text-sm transition flex items-center justify-center gap-2 disabled:opacity-40"
+                  className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition flex items-center justify-center gap-2 disabled:opacity-40"
                 >
-                  {isSaving && <Loader2 className="w-4 h-4 animate-spin text-black" />}
+                  {isSaving && <Loader2 className="w-4 h-4 animate-spin text-white" />}
                   Save Entry
                 </button>
               </div>

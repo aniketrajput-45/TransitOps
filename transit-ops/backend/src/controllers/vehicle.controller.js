@@ -2,6 +2,8 @@ import Vehicle from "../models/Vehicle.js";
 import FuelLog from "../models/FuelLog.js";
 import MaintenanceLog from "../models/MaintenanceLog.js";
 import Expense from "../models/Expense.js";
+import Driver from "../models/Driver.js";
+import Trip from "../models/Trip.js";
 
 // @desc    Get all vehicles
 // @route   GET /api/vehicles
@@ -30,6 +32,23 @@ export const getAllVehicles = async (req, res) => {
       ];
     }
 
+    if (req.user.role === "Driver") {
+      const driverProfile = await Driver.findOne({
+        name: { $regex: new RegExp("^" + req.user.name + "$", "i") },
+      });
+      if (!driverProfile) {
+        return res.status(200).json({
+          success: true,
+          count: 0,
+          vehicles: [],
+        });
+      }
+
+      const trips = await Trip.find({ driver: driverProfile._id });
+      const vehicleIds = trips.map((t) => t.vehicle).filter(Boolean);
+      filter._id = { $in: vehicleIds };
+    }
+
     const vehicles = await Vehicle.find(filter).sort({ createdAt: -1 });
 
     res.status(200).json({
@@ -50,6 +69,26 @@ export const getAllVehicles = async (req, res) => {
 // @access  Private
 export const getVehicleById = async (req, res) => {
   try {
+    if (req.user.role === "Driver") {
+      const driverProfile = await Driver.findOne({
+        name: { $regex: new RegExp("^" + req.user.name + "$", "i") },
+      });
+      if (!driverProfile) {
+        return res.status(403).json({
+          success: false,
+          message: "Access denied: you are not assigned to this vehicle",
+        });
+      }
+
+      const trip = await Trip.findOne({ driver: driverProfile._id, vehicle: req.params.id });
+      if (!trip) {
+        return res.status(403).json({
+          success: false,
+          message: "Access denied: you are not assigned to this vehicle",
+        });
+      }
+    }
+
     const vehicle = await Vehicle.findById(req.params.id);
 
     if (!vehicle) {
@@ -200,6 +239,27 @@ export const deleteVehicle = async (req, res) => {
 export const getVehicleOperationalCost = async (req, res) => {
   try {
     const vehicleId = req.params.id;
+
+    if (req.user.role === "Driver") {
+      const driverProfile = await Driver.findOne({
+        name: { $regex: new RegExp("^" + req.user.name + "$", "i") },
+      });
+      if (!driverProfile) {
+        return res.status(403).json({
+          success: false,
+          message: "Access denied: you are not assigned to this vehicle",
+        });
+      }
+
+      const trip = await Trip.findOne({ driver: driverProfile._id, vehicle: vehicleId });
+      if (!trip) {
+        return res.status(403).json({
+          success: false,
+          message: "Access denied: you are not assigned to this vehicle",
+        });
+      }
+    }
+
     const vehicle = await Vehicle.findById(vehicleId);
     if (!vehicle) {
       return res.status(404).json({

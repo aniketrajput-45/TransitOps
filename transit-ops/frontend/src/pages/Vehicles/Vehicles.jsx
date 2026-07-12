@@ -191,12 +191,12 @@ const Vehicles = () => {
       {/* Header and Add Action */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-extrabold text-white">Vehicle Registry</h2>
-          <p className="text-slate-400 text-sm mt-1">Manage, audit, and track your fleet assets</p>
+          <h2 className="text-2xl font-extrabold text-slate-900">Vehicle Registry</h2>
+          <p className="text-slate-500 text-sm mt-1">Manage, audit, and track your fleet assets</p>
         </div>
         <button
           onClick={handleOpenAddModal}
-          className="inline-flex items-center justify-center px-4 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-xl transition duration-150 gap-2 text-sm shadow-[0_4px_15px_rgba(6,182,212,0.15)]"
+          className="inline-flex items-center justify-center px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition duration-150 gap-2 text-sm shadow-sm"
         >
           <Plus className="w-4 h-4" />
           Add Vehicle
@@ -205,52 +205,52 @@ const Vehicles = () => {
 
       {/* KPI Cards Grid */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-          <div className="flex justify-between items-center text-slate-500 mb-2">
+        <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm">
+          <div className="flex justify-between items-center text-slate-400 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Total Fleet</span>
-            <Car className="w-4 h-4 text-cyan-400" />
+            <Car className="w-4 h-4 text-indigo-600" />
           </div>
-          <p className="text-2xl font-bold text-white">{kpis.total}</p>
+          <p className="text-2xl font-bold text-slate-900">{kpis.total}</p>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-          <div className="flex justify-between items-center text-slate-500 mb-2">
+        <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm">
+          <div className="flex justify-between items-center text-slate-400 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Available</span>
-            <CheckCircle className="w-4 h-4 text-emerald-400" />
+            <CheckCircle className="w-4 h-4 text-emerald-600" />
           </div>
-          <p className="text-2xl font-bold text-emerald-400">{kpis.available}</p>
+          <p className="text-2xl font-bold text-emerald-600">{kpis.available}</p>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-          <div className="flex justify-between items-center text-slate-500 mb-2">
+        <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm">
+          <div className="flex justify-between items-center text-slate-400 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">On Trip</span>
-            <TrendingUp className="w-4 h-4 text-amber-400" />
+            <TrendingUp className="w-4 h-4 text-amber-600" />
           </div>
-          <p className="text-2xl font-bold text-amber-400">{kpis.onTrip}</p>
+          <p className="text-2xl font-bold text-amber-600">{kpis.onTrip}</p>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-          <div className="flex justify-between items-center text-slate-500 mb-2">
+        <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm">
+          <div className="flex justify-between items-center text-slate-400 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">In Shop</span>
-            <Wrench className="w-4 h-4 text-orange-400" />
+            <Wrench className="w-4 h-4 text-orange-600" />
           </div>
-          <p className="text-2xl font-bold text-orange-400">{kpis.inShop}</p>
+          <p className="text-2xl font-bold text-orange-600">{kpis.inShop}</p>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl col-span-2 lg:col-span-1">
-          <div className="flex justify-between items-center text-slate-500 mb-2">
+        <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm col-span-2 lg:col-span-1">
+          <div className="flex justify-between items-center text-slate-400 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Retired</span>
-            <Ban className="w-4 h-4 text-rose-400" />
+            <Ban className="w-4 h-4 text-rose-600" />
           </div>
-          <p className="text-2xl font-bold text-rose-400">{kpis.retired}</p>
+          <p className="text-2xl font-bold text-rose-600">{kpis.retired}</p>
         </div>
       </div>
 
       {/* Filters and Search Bar */}
-      <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl flex flex-col md:flex-row gap-4 items-center justify-between">
+      <div className="bg-white border border-slate-200 p-5 rounded-2xl flex flex-col md:flex-row gap-4 items-center justify-between shadow-sm">
         {/* Search */}
         <div className="relative w-full md:max-w-xs">
-          <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+          <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-450">
             <Search className="w-4 h-4" />
           </div>
           <input
@@ -258,21 +258,21 @@ const Vehicles = () => {
             placeholder="Search by model or plate..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition"
+            className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition"
           />
         </div>
 
         {/* Filters */}
         <div className="flex flex-wrap w-full md:w-auto items-center gap-3">
-          <div className="flex items-center gap-2 text-slate-400 text-sm">
-            <SlidersHorizontal className="w-4 h-4 text-cyan-400" />
+          <div className="flex items-center gap-2 text-slate-500 text-sm">
+            <SlidersHorizontal className="w-4 h-4 text-indigo-650" />
             <span>Filters:</span>
           </div>
 
           <select
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
-            className="px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-300 focus:outline-none focus:border-cyan-400 transition cursor-pointer"
+            className="px-3 py-2 bg-white border border-slate-300 rounded-xl text-xs text-slate-700 focus:outline-none focus:border-indigo-500 transition cursor-pointer"
           >
             <option value="">All Types</option>
             <option value="Truck">Truck</option>
@@ -284,7 +284,7 @@ const Vehicles = () => {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-300 focus:outline-none focus:border-cyan-400 transition cursor-pointer"
+            className="px-3 py-2 bg-white border border-slate-300 rounded-xl text-xs text-slate-700 focus:outline-none focus:border-indigo-500 transition cursor-pointer"
           >
             <option value="">All Statuses</option>
             <option value="Available">Available</option>
@@ -296,28 +296,28 @@ const Vehicles = () => {
       </div>
 
       {/* Main Table Grid */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
         {loading ? (
           <div className="py-20 flex flex-col items-center justify-center gap-3">
-            <Loader2 className="w-8 h-8 text-cyan-400 animate-spin" />
-            <p className="text-slate-400 text-sm">Loading vehicles database...</p>
+            <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
+            <p className="text-slate-500 text-sm">Loading vehicles database...</p>
           </div>
         ) : error ? (
-          <div className="py-20 text-center text-rose-400 flex flex-col items-center justify-center gap-2">
+          <div className="py-20 text-center text-rose-600 flex flex-col items-center justify-center gap-2">
             <AlertCircle className="w-8 h-8" />
             <p>{error}</p>
           </div>
         ) : vehicles.length === 0 ? (
           <div className="py-20 text-center text-slate-500">
-            <Car className="w-12 h-12 text-slate-700 mx-auto mb-3" />
-            <p className="text-slate-400">No vehicles registered</p>
-            <p className="text-xs text-slate-600 mt-1">Try modifying your filters or add a new vehicle asset.</p>
+            <Car className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+            <p className="text-slate-500">No vehicles registered</p>
+            <p className="text-xs text-slate-400 mt-1">Try modifying your filters or add a new vehicle asset.</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-sm">
               <thead>
-                <tr className="bg-slate-950 border-b border-slate-800 text-slate-400 font-semibold uppercase text-xs">
+                <tr className="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase text-xs">
                   <th className="px-6 py-4">Reg Number</th>
                   <th className="px-6 py-4">Model Name</th>
                   <th className="px-6 py-4">Type</th>
@@ -328,25 +328,25 @@ const Vehicles = () => {
                   <th className="px-6 py-4 text-center">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-slate-200">
                 {vehicles.map((v) => (
-                  <tr key={v._id} className="hover:bg-slate-800/30 transition">
-                    <td className="px-6 py-4 font-mono font-semibold text-cyan-400">{v.registrationNumber}</td>
-                    <td className="px-6 py-4 text-white font-medium">{v.name}</td>
-                    <td className="px-6 py-4 text-slate-300">{v.type}</td>
-                    <td className="px-6 py-4 text-right text-slate-300">{v.maxLoadCapacity.toLocaleString()} kg</td>
-                    <td className="px-6 py-4 text-right text-slate-300">{v.odometer.toLocaleString()} km</td>
-                    <td className="px-6 py-4 text-right text-slate-300">${v.acquisitionCost.toLocaleString()}</td>
+                  <tr key={v._id} className="hover:bg-slate-50/80 transition">
+                    <td className="px-6 py-4 font-mono font-semibold text-indigo-650">{v.registrationNumber}</td>
+                    <td className="px-6 py-4 text-slate-900 font-medium">{v.name}</td>
+                    <td className="px-6 py-4 text-slate-600">{v.type}</td>
+                    <td className="px-6 py-4 text-right text-slate-650">{v.maxLoadCapacity.toLocaleString()} kg</td>
+                    <td className="px-6 py-4 text-right text-slate-650">{v.odometer.toLocaleString()} km</td>
+                    <td className="px-6 py-4 text-right text-slate-650">${v.acquisitionCost.toLocaleString()}</td>
                     <td className="px-6 py-4">
                       <span
                         className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold border ${
                           v.status === "Available"
-                            ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                            ? "bg-emerald-50 text-emerald-700 border-emerald-255"
                             : v.status === "On Trip"
-                            ? "bg-amber-500/10 text-amber-400 border-amber-500/20"
+                            ? "bg-amber-50 text-amber-700 border-amber-255"
                             : v.status === "In Shop"
-                            ? "bg-orange-500/10 text-orange-400 border-orange-500/20"
-                            : "bg-rose-500/10 text-rose-400 border-rose-500/20"
+                            ? "bg-orange-50 text-orange-700 border-orange-255"
+                            : "bg-rose-50 text-rose-700 border-rose-255"
                         }`}
                       >
                         {v.status}
@@ -356,14 +356,14 @@ const Vehicles = () => {
                       <div className="flex items-center justify-center gap-2">
                         <button
                           onClick={() => handleOpenEditModal(v)}
-                          className="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-lg transition"
+                          className="p-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition"
                           title="Edit"
                         >
                           <Edit2 className="w-3.5 h-3.5" />
                         </button>
                         <button
                           onClick={() => handleDelete(v._id)}
-                          className="p-1.5 bg-rose-500/5 hover:bg-rose-500/15 text-rose-400 hover:text-rose-300 rounded-lg border border-rose-500/10 transition"
+                          className="p-1.5 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg border border-rose-200 transition"
                           title="Delete"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
@@ -380,16 +380,16 @@ const Vehicles = () => {
 
       {/* Add/Edit Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fade-in">
-          <div className="bg-slate-900 border border-slate-800 w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
+          <div className="bg-white border border-slate-200 w-full max-w-lg rounded-2xl overflow-hidden shadow-xl relative">
             {/* Modal Header */}
-            <div className="px-6 py-4 border-b border-slate-800 flex justify-between items-center">
-              <h3 className="font-bold text-lg text-white">
+            <div className="px-6 py-4 border-b border-slate-200 flex justify-between items-center">
+              <h3 className="font-bold text-lg text-slate-900">
                 {editingVehicle ? "Edit Vehicle Asset" : "Register New Vehicle"}
               </h3>
               <button
                 onClick={handleCloseModal}
-                className="text-slate-400 hover:text-white p-1 hover:bg-slate-800 rounded-lg transition"
+                className="text-slate-400 hover:text-slate-600 p-1 hover:bg-slate-100 rounded-lg transition"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -398,7 +398,7 @@ const Vehicles = () => {
             {/* Modal Content / Form */}
             <form onSubmit={handleSubmit(onSubmit)} className="p-6 space-y-4">
               {modalError && (
-                <div className="p-3 bg-rose-500/10 border border-rose-500/20 text-rose-400 rounded-xl text-xs flex items-center gap-2">
+                <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 rounded-xl text-xs flex items-center gap-2">
                   <AlertCircle className="w-4 h-4 flex-shrink-0" />
                   <span>{modalError}</span>
                 </div>
@@ -407,7 +407,7 @@ const Vehicles = () => {
               <div className="grid grid-cols-2 gap-4">
                 {/* Reg Number */}
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">
+                  <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider pl-1">
                     Registration Plate
                   </label>
                   <input
@@ -415,37 +415,37 @@ const Vehicles = () => {
                     placeholder="e.g. MH-12-AB-1234"
                     disabled={!!editingVehicle}
                     {...register("registrationNumber")}
-                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 uppercase placeholder-slate-600 focus:outline-none focus:border-cyan-400 transition disabled:opacity-50"
+                    className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 uppercase placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition disabled:opacity-50"
                   />
                   {errors.registrationNumber && (
-                    <p className="text-xs text-rose-400 pl-1 mt-0.5">{errors.registrationNumber.message}</p>
+                    <p className="text-xs text-rose-600 pl-1 mt-0.5">{errors.registrationNumber.message}</p>
                   )}
                 </div>
 
                 {/* Name / Model */}
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">
+                  <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider pl-1">
                     Vehicle Model Name
                   </label>
                   <input
                     type="text"
                     placeholder="e.g. Volvo FH16"
                     {...register("name")}
-                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-cyan-400 transition"
+                    className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition"
                   />
-                  {errors.name && <p className="text-xs text-rose-400 pl-1 mt-0.5">{errors.name.message}</p>}
+                  {errors.name && <p className="text-xs text-rose-600 pl-1 mt-0.5">{errors.name.message}</p>}
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 {/* Type Selection */}
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">
+                  <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider pl-1">
                     Vehicle Type
                   </label>
                   <select
                     {...register("type")}
-                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyan-400 transition cursor-pointer"
+                    className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition cursor-pointer"
                   >
                     <option value="Truck">Truck</option>
                     <option value="Van">Van</option>
@@ -456,12 +456,12 @@ const Vehicles = () => {
 
                 {/* Status Selection */}
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">
+                  <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider pl-1">
                     Status
                   </label>
                   <select
                     {...register("status")}
-                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyan-400 transition cursor-pointer"
+                    className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition cursor-pointer"
                   >
                     <option value="Available">Available</option>
                     <option value="On Trip">On Trip</option>
@@ -474,65 +474,65 @@ const Vehicles = () => {
               <div className="grid grid-cols-3 gap-4">
                 {/* Max Load Capacity */}
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">
+                  <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider pl-1">
                     Max Load (kg)
                   </label>
                   <input
                     type="number"
                     {...register("maxLoadCapacity")}
-                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyan-400 transition"
+                    className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition"
                   />
                   {errors.maxLoadCapacity && (
-                    <p className="text-xs text-rose-400 pl-1 mt-0.5">{errors.maxLoadCapacity.message}</p>
+                    <p className="text-xs text-rose-650 pl-1 mt-0.5">{errors.maxLoadCapacity.message}</p>
                   )}
                 </div>
 
                 {/* Odometer */}
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">
+                  <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider pl-1">
                     Odometer (km)
                   </label>
                   <input
                     type="number"
                     {...register("odometer")}
-                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyan-400 transition"
+                    className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition"
                   />
                   {errors.odometer && (
-                    <p className="text-xs text-rose-400 pl-1 mt-0.5">{errors.odometer.message}</p>
+                    <p className="text-xs text-rose-650 pl-1 mt-0.5">{errors.odometer.message}</p>
                   )}
                 </div>
 
                 {/* Acquisition Cost */}
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">
+                  <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider pl-1">
                     Cost ($)
                   </label>
                   <input
                     type="number"
                     {...register("acquisitionCost")}
-                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyan-400 transition"
+                    className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition"
                   />
                   {errors.acquisitionCost && (
-                    <p className="text-xs text-rose-400 pl-1 mt-0.5">{errors.acquisitionCost.message}</p>
+                    <p className="text-xs text-rose-650 pl-1 mt-0.5">{errors.acquisitionCost.message}</p>
                   )}
                 </div>
               </div>
 
               {/* Form Footer Actions */}
-              <div className="pt-4 border-t border-slate-800 flex justify-end gap-3">
+              <div className="pt-4 border-t border-slate-200 flex justify-end gap-3">
                 <button
                   type="button"
                   onClick={handleCloseModal}
-                  className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-sm transition"
+                  className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-sm transition"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSaving}
-                  className="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-xl text-sm transition flex items-center justify-center gap-2"
+                  className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition flex items-center justify-center gap-2"
                 >
-                  {isSaving && <Loader2 className="w-4 h-4 animate-spin" />}
+                  {isSaving && <Loader2 className="w-4 h-4 animate-spin text-white" />}
                   Save Vehicle
                 </button>
               </div>

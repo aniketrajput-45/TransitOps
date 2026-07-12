@@ -122,12 +122,12 @@ const FuelLogs = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-extrabold text-white">Fuel Logs</h2>
-          <p className="text-slate-400 text-sm mt-1">Record fuel purchases and track fuel efficiency metrics</p>
+          <h2 className="text-2xl font-extrabold text-slate-900">Fuel Logs</h2>
+          <p className="text-slate-500 text-sm mt-1">Record fuel purchases and track fuel efficiency metrics</p>
         </div>
         <button
           onClick={handleOpenModal}
-          className="inline-flex items-center justify-center px-4 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-xl transition duration-150 gap-2 text-sm shadow-[0_4px_15px_rgba(6,182,212,0.15)]"
+          className="inline-flex items-center justify-center px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition duration-150 gap-2 text-sm shadow-sm"
         >
           <Plus className="w-4 h-4" />
           Log Fuel Purchase
@@ -136,54 +136,54 @@ const FuelLogs = () => {
 
       {/* Stats Summary */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-          <div className="flex justify-between items-center text-slate-500 mb-2">
+        <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm">
+          <div className="flex justify-between items-center text-slate-400 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Total Fuel Purchased</span>
-            <Fuel className="w-4 h-4 text-cyan-400" />
+            <Fuel className="w-4 h-4 text-indigo-600" />
           </div>
-          <p className="text-2xl font-bold text-white">{stats.totalLiters.toFixed(1)} Liters</p>
+          <p className="text-2xl font-bold text-slate-900">{stats.totalLiters.toFixed(1)} Liters</p>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-          <div className="flex justify-between items-center text-slate-500 mb-2">
+        <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm">
+          <div className="flex justify-between items-center text-slate-400 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Total Fuel Expenditure</span>
-            <DollarSign className="w-4 h-4 text-rose-400" />
+            <DollarSign className="w-4 h-4 text-indigo-600" />
           </div>
-          <p className="text-2xl font-bold text-white">${stats.totalCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+          <p className="text-2xl font-bold text-rose-600">${stats.totalCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-          <div className="flex justify-between items-center text-slate-500 mb-2">
+        <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm">
+          <div className="flex justify-between items-center text-slate-400 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Avg Cost / Liter</span>
-            <TrendingUp className="w-4 h-4 text-amber-400" />
+            <TrendingUp className="w-4 h-4 text-amber-600" />
           </div>
-          <p className="text-2xl font-bold text-white">${stats.avgCostPerLiter.toFixed(2)}</p>
+          <p className="text-2xl font-bold text-slate-900">${stats.avgCostPerLiter.toFixed(2)}</p>
         </div>
       </div>
 
       {/* Logs Table Grid */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
         {loading ? (
           <div className="py-20 flex flex-col items-center justify-center gap-3">
-            <Loader2 className="w-8 h-8 text-cyan-400 animate-spin" />
-            <p className="text-slate-400 text-sm">Loading fuel logs database...</p>
+            <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
+            <p className="text-slate-500 text-sm">Loading fuel logs database...</p>
           </div>
         ) : error ? (
-          <div className="py-20 text-center text-rose-400 flex flex-col items-center justify-center gap-2">
+          <div className="py-20 text-center text-rose-600 flex flex-col items-center justify-center gap-2">
             <AlertCircle className="w-8 h-8" />
             <p>{error}</p>
           </div>
         ) : logs.length === 0 ? (
           <div className="py-20 text-center text-slate-500">
-            <Fuel className="w-12 h-12 text-slate-700 mx-auto mb-3" />
-            <p className="text-slate-400">No fuel records logged</p>
-            <p className="text-xs text-slate-600 mt-1">Manual logs and completed trip fuel details will appear here.</p>
+            <Fuel className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+            <p className="text-slate-555">No fuel records logged</p>
+            <p className="text-xs text-slate-400 mt-1">Manual logs and completed trip fuel details will appear here.</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-sm">
               <thead>
-                <tr className="bg-slate-950 border-b border-slate-800 text-slate-400 font-semibold uppercase text-xs">
+                <tr className="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase text-xs">
                   <th className="px-6 py-4">Vehicle</th>
                   <th className="px-6 py-4">Liters Purchased</th>
                   <th className="px-6 py-4">Total Cost</th>
@@ -192,34 +192,34 @@ const FuelLogs = () => {
                   <th className="px-6 py-4">Logged Date</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-slate-200">
                 {logs.map((log) => (
-                  <tr key={log._id} className="hover:bg-slate-800/30 transition">
+                  <tr key={log._id} className="hover:bg-slate-50/80 transition">
                     <td className="px-6 py-4">
                       {log.vehicle ? (
                         <div className="flex flex-col">
-                          <span className="font-mono font-semibold text-cyan-400">{log.vehicle.registrationNumber}</span>
+                          <span className="font-mono font-semibold text-indigo-650">{log.vehicle.registrationNumber}</span>
                           <span className="text-xs text-slate-500 mt-0.5">{log.vehicle.name}</span>
                         </div>
                       ) : (
-                        <span className="text-slate-600">Deleted Vehicle</span>
+                        <span className="text-slate-400">Deleted Vehicle</span>
                       )}
                     </td>
-                    <td className="px-6 py-4 text-white font-medium">{log.liters.toFixed(2)} L</td>
-                    <td className="px-6 py-4 text-slate-200 font-semibold">${log.cost.toFixed(2)}</td>
-                    <td className="px-6 py-4 text-slate-400">${(log.cost / log.liters).toFixed(2)} / L</td>
+                    <td className="px-6 py-4 text-slate-900 font-medium">{log.liters.toFixed(2)} L</td>
+                    <td className="px-6 py-4 text-slate-900 font-semibold">${log.cost.toFixed(2)}</td>
+                    <td className="px-6 py-4 text-slate-500">${(log.cost / log.liters).toFixed(2)} / L</td>
                     <td className="px-6 py-4">
                       {log.trip ? (
-                        <span className="text-xs text-cyan-400 font-medium">
+                        <span className="text-xs text-indigo-700 font-semibold bg-indigo-50 px-2.5 py-1 rounded-xl">
                           {log.trip.source} → {log.trip.destination}
                         </span>
                       ) : (
-                        <span className="text-xs text-slate-500 italic">Manual entry</span>
+                        <span className="text-xs text-slate-450 italic bg-slate-100 px-2.5 py-1 rounded-xl">Manual entry</span>
                       )}
                     </td>
-                    <td className="px-6 py-4 text-slate-350">
+                    <td className="px-6 py-4 text-slate-700">
                       <div className="flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5 text-slate-500" />
+                        <Calendar className="w-3.5 h-3.5 text-slate-400" />
                         <span>{new Date(log.date).toLocaleDateString()}</span>
                       </div>
                     </td>
@@ -233,13 +233,13 @@ const FuelLogs = () => {
 
       {/* Manual Entry Dialog */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fade-in">
-          <div className="bg-slate-900 border border-slate-800 w-full max-w-md rounded-2xl overflow-hidden shadow-2xl relative">
-            <div className="px-6 py-4 border-b border-slate-800 flex justify-between items-center">
-              <h3 className="font-bold text-lg text-white">Log Fuel Purchase</h3>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
+          <div className="bg-white border border-slate-200 w-full max-w-md rounded-2xl overflow-hidden shadow-xl relative">
+            <div className="px-6 py-4 border-b border-slate-200 flex justify-between items-center">
+              <h3 className="font-bold text-lg text-slate-900">Log Fuel Purchase</h3>
               <button
                 onClick={handleCloseModal}
-                className="text-slate-400 hover:text-white p-1 hover:bg-slate-800 rounded-lg transition"
+                className="text-slate-400 hover:text-slate-600 p-1 hover:bg-slate-100 rounded-lg transition"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -247,7 +247,7 @@ const FuelLogs = () => {
 
             <form onSubmit={handleSubmit(onSubmit)} className="p-6 space-y-4">
               {modalError && (
-                <div className="p-3 bg-rose-500/10 border border-rose-500/20 text-rose-400 rounded-xl text-xs flex items-center gap-2">
+                <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 rounded-xl text-xs flex items-center gap-2">
                   <AlertCircle className="w-4 h-4 flex-shrink-0" />
                   <span>{modalError}</span>
                 </div>
@@ -255,12 +255,12 @@ const FuelLogs = () => {
 
               {/* Vehicle select */}
               <div className="space-y-1">
-                <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">
+                <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider pl-1">
                   Assign Vehicle
                 </label>
                 <select
                   {...register("vehicle")}
-                  className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyan-400 transition cursor-pointer"
+                  className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition cursor-pointer"
                 >
                   <option value="">-- Select Fleet Vehicle --</option>
                   {vehicles.map((v) => (
@@ -269,13 +269,13 @@ const FuelLogs = () => {
                     </option>
                   ))}
                 </select>
-                {errors.vehicle && <p className="text-xs text-rose-400 pl-1 mt-0.5">{errors.vehicle.message}</p>}
+                {errors.vehicle && <p className="text-xs text-rose-600 pl-1 mt-0.5">{errors.vehicle.message}</p>}
               </div>
 
               {/* Liters & Cost */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">
+                  <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider pl-1">
                     Liters Purchased
                   </label>
                   <input
@@ -283,13 +283,13 @@ const FuelLogs = () => {
                     step="0.01"
                     placeholder="e.g. 45.5"
                     {...register("liters")}
-                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyan-400 transition"
+                    className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition"
                   />
-                  {errors.liters && <p className="text-xs text-rose-400 pl-1 mt-0.5">{errors.liters.message}</p>}
+                  {errors.liters && <p className="text-xs text-rose-600 pl-1 mt-0.5">{errors.liters.message}</p>}
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">
+                  <label className="text-xs font-semibold text-slate-550 uppercase tracking-wider pl-1">
                     Total Cost ($)
                   </label>
                   <input
@@ -297,40 +297,40 @@ const FuelLogs = () => {
                     step="0.01"
                     placeholder="e.g. 54.6"
                     {...register("cost")}
-                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyan-400 transition"
+                    className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition"
                   />
-                  {errors.cost && <p className="text-xs text-rose-400 pl-1 mt-0.5">{errors.cost.message}</p>}
+                  {errors.cost && <p className="text-xs text-rose-600 pl-1 mt-0.5">{errors.cost.message}</p>}
                 </div>
               </div>
 
               {/* Date */}
               <div className="space-y-1">
-                <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider pl-1">
+                <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider pl-1">
                   Purchase Date
                 </label>
                 <input
                   type="date"
                   {...register("date")}
-                  className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyan-400 transition"
+                  className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition"
                 />
-                {errors.date && <p className="text-xs text-rose-400 pl-1 mt-0.5">{errors.date.message}</p>}
+                {errors.date && <p className="text-xs text-rose-600 pl-1 mt-0.5">{errors.date.message}</p>}
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-4 border-t border-slate-800 flex justify-end gap-3">
+              <div className="pt-4 border-t border-slate-200 flex justify-end gap-3">
                 <button
                   type="button"
                   onClick={handleCloseModal}
-                  className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-3 font-semibold rounded-xl text-sm transition"
+                  className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-sm transition"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSaving || vehicles.length === 0}
-                  className="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-xl text-sm transition flex items-center justify-center gap-2 disabled:opacity-40"
+                  className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition flex items-center justify-center gap-2 disabled:opacity-40"
                 >
-                  {isSaving && <Loader2 className="w-4 h-4 animate-spin text-black" />}
+                  {isSaving && <Loader2 className="w-4 h-4 animate-spin text-white" />}
                   Save Entry
                 </button>
               </div>

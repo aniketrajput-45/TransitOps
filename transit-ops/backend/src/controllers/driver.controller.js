@@ -19,6 +19,10 @@ export const getAllDrivers = async (req, res) => {
       ];
     }
 
+    if (req.user.role === "Driver") {
+      filter.name = { $regex: new RegExp("^" + req.user.name + "$", "i") };
+    }
+
     const drivers = await Driver.find(filter).sort({ createdAt: -1 });
 
     res.status(200).json({
@@ -45,6 +49,13 @@ export const getDriverById = async (req, res) => {
       return res.status(404).json({
         success: false,
         message: "Driver not found",
+      });
+    }
+
+    if (req.user.role === "Driver" && driver.name.toLowerCase() !== req.user.name.toLowerCase()) {
+      return res.status(403).json({
+        success: false,
+        message: "Access denied: you cannot view other driver profiles",
       });
     }
 
